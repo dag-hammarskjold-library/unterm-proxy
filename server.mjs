@@ -4,10 +4,19 @@ import http from "node:http";
 import { context, linkedDataToTurtle, transformRecordToLinkedData } from "./scripts/map-to-linked-data.mjs";
 
 const PORT = Number(process.env.PORT || 3000);
+
+// This is where the app gets the json serialized record from
 const REMOTE_API_BASE = "https://conferences.unite.un.org/untermapi/api/record/";
+
+// This is the base for the "URI" that will be generated for interstitial use 
 const API_BASE = "http://metadata.un.org/unterm/"
+
+// This is the URL base for the web view version of the terms 
 const WEB_BASE = "https://unterm.un.org/unterm2/view/";
+
+// And this is the API for the specific countries page
 const COUNTRIES_API_BASE = "https://conferences.unite.un.org/untermapi/api/term/countries";
+
 const COUNTRIES_SEARCH_BODY = {
   searchType: 0,
   searchLanguages: ["en", "fr", "es", "ru", "zh", "ar"],
@@ -45,6 +54,11 @@ function sendText(res, statusCode, text, contentType = "text/plain; charset=utf-
 function wantsTurtle(req) {
   const accept = String(req.headers.accept || "").toLowerCase();
   return accept.includes("text/turtle");
+}
+
+function wantsJsonLd(req) {
+  const accept = String(req.headers.accept || "").toLowerCase();
+  return accept.includes("application/ld+json");
 }
 
 function parseCountriesFilters(url) {
@@ -303,7 +317,17 @@ const server = http.createServer(async (req, res) => {
       sendText(res, 200, turtle, "text/turtle; charset=utf-8");
       return;
     }
-    sendJson(res, 200, linkedData, "application/ld+json; charset=utf-8");
+
+    if (wantsJsonLd(req)) {
+      sendJson(res, 200, linkedData, "application/ld+json; charset=utf-8");
+      return;
+    }
+
+    res.writeHead(302, {
+      Location: `${WEB_BASE}${encodeURIComponent(recordID)}`,
+      "Cache-Control": "no-store"
+    });
+    res.end();
   } catch (error) {
     sendJson(res, 502, {
       error: "Failed to fetch or transform source record",
