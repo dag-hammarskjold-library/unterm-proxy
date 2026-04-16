@@ -16,6 +16,7 @@ const WEB_BASE = "https://unterm.un.org/unterm2/view/";
 
 // And this is the API for the specific countries page
 const COUNTRIES_API_BASE = "https://conferences.unite.un.org/untermapi/api/term/countries";
+const COUNTRIES_SCHEME_ID = `${API_BASE}countries`;
 
 const COUNTRIES_SEARCH_BODY = {
   searchType: 0,
@@ -93,6 +94,7 @@ function groupMatchesForConceptList(matches) {
       grouped.set(id, {
         "@id": id,
         "unterm:webURL": match["unterm:webURL"] || null,
+        "skos:inScheme": { "@id": COUNTRIES_SCHEME_ID },
         "skos:prefLabel": []
       });
     }
@@ -248,16 +250,15 @@ const server = http.createServer(async (req, res) => {
         return;
       }
 
-      const schemeId = `${COUNTRIES_API_BASE}#scheme`;
       const concepts = graph.map((country) => ({
         ...country,
         "unterm:webURL": `${WEB_BASE}${country["dct:identifier"]}`,
-        "skos:inScheme": { "@id": schemeId }
+        "skos:inScheme": { "@id": COUNTRIES_SCHEME_ID }
       }));
 
       const graphDoc = {
         "@context": context,
-        "@id": schemeId,
+        "@id": COUNTRIES_SCHEME_ID,
         "@type": "skos:ConceptScheme",
         "dct:title": {
           "@value": "UNTERM countries",
@@ -311,7 +312,10 @@ const server = http.createServer(async (req, res) => {
     }
 
     const record = await upstream.json();
-    const linkedData = transformRecordToLinkedData(record, { recordIriBase: API_BASE });
+    const linkedData = {
+      ...transformRecordToLinkedData(record, { recordIriBase: API_BASE }),
+      "skos:inScheme": { "@id": COUNTRIES_SCHEME_ID }
+    };
     if (wantsTurtle(req)) {
       const turtle = linkedDataToTurtle(linkedData);
       sendText(res, 200, turtle, "text/turtle; charset=utf-8");
