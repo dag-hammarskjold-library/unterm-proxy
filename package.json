@@ -1,0 +1,10 @@
+{
+  "name": "unterm-linked-data-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "convert": "node scripts/map-to-linked-data.mjs term.json linked-data.jsonld"
+  }
+}

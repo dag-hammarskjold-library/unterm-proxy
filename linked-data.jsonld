@@ -1,0 +1,997 @@
+{
+  "@context": {
+    "@vocab": "http://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "unterm": "https://metadata.un.org/UNTERM/ontology#"
+  },
+  "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af",
+  "@type": [
+    "skos:Concept",
+    "Country"
+  ],
+  "dct:identifier": "956a3881-b5fe-406b-8177-9fe7d9b835af",
+  "dct:type": "Country",
+  "dct:title": {
+    "@value": "the French Republic",
+    "@language": "en"
+  },
+  "dct:created": {
+    "@value": "2015-05-20T11:59:58.213",
+    "@type": "xsd:dateTime"
+  },
+  "dct:modified": {
+    "@value": "2023-09-15T15:22:56.7760727",
+    "@type": "xsd:dateTime"
+  },
+  "dct:creator": "desalegn biru/ny/uno",
+  "dct:contributor": "amina.benser",
+  "skos:prefLabel": [
+    {
+      "@value": "فرنسا",
+      "@language": "ar"
+    },
+    {
+      "@value": "法国",
+      "@language": "zh"
+    },
+    {
+      "@value": "France",
+      "@language": "en"
+    },
+    {
+      "@value": "France (la)",
+      "@language": "fr"
+    },
+    {
+      "@value": "Francia",
+      "@language": "es"
+    },
+    {
+      "@value": "Франция",
+      "@language": "ru"
+    }
+  ],
+  "skos:altLabel": [
+    {
+      "@value": "الجمهورية الفرنسية",
+      "@language": "ar"
+    },
+    {
+      "@value": "法兰西共和国",
+      "@language": "zh"
+    },
+    {
+      "@value": "the French Republic",
+      "@language": "en"
+    },
+    {
+      "@value": "la République française",
+      "@language": "fr"
+    },
+    {
+      "@value": "la República Francesa",
+      "@language": "es"
+    },
+    {
+      "@value": "Французская Республика",
+      "@language": "ru"
+    }
+  ],
+  "skos:definition": [
+    {
+      "@value": "全国分为大区、省和市镇。本土划为13个大区、96个省，还有5个海外单省大区、5个海外行政区和1个地位特殊的海外属地。全国共有36700个市镇。",
+      "@language": "zh"
+    }
+  ],
+  "skos:note": [
+    {
+      "@value": "It is incorrect to refer to the euro by nationality, for example as an Austrian euro or Belgian euro. However, one may refer to a country’s holdings of euro, for example euro (France) or euro (Germany).&nbsp;The franc was the former currency unit.",
+      "@language": "en"
+    },
+    {
+      "@value": "La désignation usuelle de la subdivision de l'euro est en France le \"centime\" appellation française légale du \"cent\" (Code monétaire et financier).",
+      "@language": "fr"
+    }
+  ],
+  "unterm:status": "Complete",
+  "unterm:distribution": "Public",
+  "unterm:dbName": "UNHQ",
+  "unterm:space": "Official",
+  "unterm:subjects": [
+    "Country names"
+  ],
+  "unterm:languages": [
+    "English",
+    "Russian",
+    "Chinese",
+    "French",
+    "Spanish",
+    "Arabic"
+  ],
+  "unterm:specialFields": [
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-af113ef9-e2a9-48bd-88ab-0078e8ab030c",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Monetary Unit",
+      "unterm:fieldValue": "euro [m.]",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 6,
+      "unterm:stacking": 2,
+      "dct:language": "es"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-f45ed99b-e511-4120-a262-0b8a972cefb3",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Adjective",
+      "unterm:fieldValue": "français",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 2,
+      "unterm:stacking": 2,
+      "dct:language": "fr"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-4a543c4e-1a91-4b72-98dc-12ac26203c3f",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Currency Symbol",
+      "unterm:fieldValue": "EUR ou €",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 9,
+      "unterm:stacking": 2,
+      "dct:language": "fr"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-02ebadea-bf8c-4f92-ade6-1c1ebe8579b7",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Currency Designation",
+      "unterm:fieldValue": "",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 8,
+      "unterm:stacking": 2,
+      "dct:language": "en"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-1158a1bb-ad92-4c1b-9ad0-2bf4cfaf5015",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Languages",
+      "unterm:fieldValue": "français",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 5,
+      "unterm:stacking": 1,
+      "dct:language": "fr"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-f31ed8bd-ecf2-4b7e-99e9-2c45ecb9b8c1",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Monetary Unit Plural",
+      "unterm:fieldValue": "يورو",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 7,
+      "unterm:stacking": 2,
+      "dct:language": "ar"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-adf5906d-a7a1-4c21-89a0-2e8eb79697c2",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Adjective",
+      "unterm:fieldValue": "французский",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 2,
+      "unterm:stacking": 2,
+      "dct:language": "ru"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-55debff2-8e71-4051-ba2d-2f0c55c67fb8",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Capital City",
+      "unterm:fieldValue": "巴黎",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 3,
+      "unterm:stacking": 2,
+      "dct:language": "zh"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-6b4dbdb0-33f0-46f7-b262-2f4fe0dbfbe2",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Monetary Unit Plural",
+      "unterm:fieldValue": "",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 7,
+      "unterm:stacking": 2,
+      "dct:language": "zh"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-a63b4df7-1e8a-48bc-b8ac-358169712b4f",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Inhabitant",
+      "unterm:fieldValue": "法国人",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 1,
+      "unterm:stacking": 2,
+      "dct:language": "zh"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-f22257f7-4d81-4293-b2fa-39d9cf892093",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "ISO Currency Code",
+      "unterm:fieldValue": "EUR",
+      "unterm:fieldLevel": "Record",
+      "unterm:fieldOrder": 4,
+      "unterm:stacking": 0,
+      "dct:language": "en"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-8198c7fa-b373-4083-bb18-3ccc40299c4e",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Monetary Unit",
+      "unterm:fieldValue": "евро",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 6,
+      "unterm:stacking": 2,
+      "dct:language": "ru"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-ad748a0e-5f91-4ea2-a0cc-3ff6cd76ad37",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Capital Inhabitants",
+      "unterm:fieldValue": "парижане",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 4,
+      "unterm:stacking": 2,
+      "dct:language": "ru"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-30c3ef45-1402-41f7-8241-434b75e559a8",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Monetary Unit",
+      "unterm:fieldValue": "يورو",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 6,
+      "unterm:stacking": 2,
+      "dct:language": "ar"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-765f6e60-d7be-4d3c-ac98-48dfd09d4494",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "ISO Country alpha-3-code",
+      "unterm:fieldValue": "FRA",
+      "unterm:fieldLevel": "Record",
+      "unterm:fieldOrder": 2,
+      "unterm:stacking": 0,
+      "dct:language": "en"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-b7ae01eb-693f-4af4-8373-51e65eb3a483",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Languages",
+      "unterm:fieldValue": "الفرنسية",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 5,
+      "unterm:stacking": 1,
+      "dct:language": "ar"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-9d857866-a9b3-42bc-95a4-5247f5f9b3a7",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Monetary Unit Plural",
+      "unterm:fieldValue": "euros",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 7,
+      "unterm:stacking": 2,
+      "dct:language": "fr"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-4bc12a59-06b6-410d-b26e-542e7659b282",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Capital City",
+      "unterm:fieldValue": "Париж",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 3,
+      "unterm:stacking": 2,
+      "dct:language": "ru"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-ac3c445f-e65f-463c-8b03-54fb44af2e0d",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Inhabitant",
+      "unterm:fieldValue": "فرنسي",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 1,
+      "unterm:stacking": 2,
+      "dct:language": "ar"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-99a0a19c-3fe4-4d95-b151-551b53ad9126",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Currency Designation",
+      "unterm:fieldValue": "",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 8,
+      "unterm:stacking": 2,
+      "dct:language": "fr"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-84d28d46-130c-4372-8601-59ba922d83e1",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Fractional Unit",
+      "unterm:fieldValue": "цент(-ы)",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 10,
+      "unterm:stacking": 2,
+      "dct:language": "ru"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-a864bf1b-ec5a-43d9-9f8f-5a64137f755e",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Capital City",
+      "unterm:fieldValue": "باريس",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 3,
+      "unterm:stacking": 2,
+      "dct:language": "ar"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-43e7cd20-e7d3-4f2c-aa22-5b06917670e0",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Languages",
+      "unterm:fieldValue": "法语",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 5,
+      "unterm:stacking": 1,
+      "dct:language": "zh"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-1df72dbe-fc47-421d-82b8-5ea1881c405e",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Fractional Unit",
+      "unterm:fieldValue": "分",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 10,
+      "unterm:stacking": 2,
+      "dct:language": "zh"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-55f599b2-8f76-4ffd-913d-60079be3c74f",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Fractional Unit",
+      "unterm:fieldValue": "centime(s)",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 10,
+      "unterm:stacking": 2,
+      "dct:language": "fr"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-dc540015-b96c-427f-85e2-60ac42c6be69",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Capital Inhabitants",
+      "unterm:fieldValue": "Parisien",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 4,
+      "unterm:stacking": 2,
+      "dct:language": "fr"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-3fd9cae9-e3e1-455f-ab9c-640d4e48a31c",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Currency Symbol",
+      "unterm:fieldValue": "€ أو EUR",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 9,
+      "unterm:stacking": 2,
+      "dct:language": "ar"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-95500f61-40ee-4eb9-a1cd-66016abf3e75",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Capital Inhabitants",
+      "unterm:fieldValue": "",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 4,
+      "unterm:stacking": 2,
+      "dct:language": "zh"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-d4169a0f-1a3c-40a3-a0ba-68e08502b41c",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Currency Symbol",
+      "unterm:fieldValue": "€",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 9,
+      "unterm:stacking": 2,
+      "dct:language": "en"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-421b313b-68dd-4cd5-931f-6ee604174f35",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Capital Inhabitants",
+      "unterm:fieldValue": "parisino",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 4,
+      "unterm:stacking": 2,
+      "dct:language": "es"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-a60fe00c-18cb-4dc2-a469-6f18f14e026c",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Monetary Unit Plural",
+      "unterm:fieldValue": "евро",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 7,
+      "unterm:stacking": 2,
+      "dct:language": "ru"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-66e075d5-ea0c-4d2a-8a0b-71862db8de67",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Date of Entry in UN",
+      "unterm:fieldValue": "24/10/1945",
+      "unterm:fieldLevel": "Record",
+      "unterm:fieldOrder": 1,
+      "unterm:stacking": 0,
+      "dct:language": "en"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-e3fa7f52-bd5c-4c12-b36a-766296d51958",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Fractional Unit",
+      "unterm:fieldValue": "céntimo(s)",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 10,
+      "unterm:stacking": 2,
+      "dct:language": "es"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-1cefa017-e1d7-4041-a061-769d89ec202e",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Languages",
+      "unterm:fieldValue": "francés",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 5,
+      "unterm:stacking": 1,
+      "dct:language": "es"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-8b9a573e-644f-4714-a081-790cfca7736e",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Inhabitant",
+      "unterm:fieldValue": "francés",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 1,
+      "unterm:stacking": 2,
+      "dct:language": "es"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-77d72640-b1ce-4c1f-b35b-7b8fa6234fbb",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Currency Symbol",
+      "unterm:fieldValue": "€",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 9,
+      "unterm:stacking": 2,
+      "dct:language": "ru"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-cf3e35fe-bf7c-4b2c-8b73-84c26bbaea9b",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Adjective",
+      "unterm:fieldValue": "francés",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 2,
+      "unterm:stacking": 2,
+      "dct:language": "es"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-82c94e4c-a5d5-4ff8-918e-85ef004a9ac8",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Currency Designation",
+      "unterm:fieldValue": "",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 8,
+      "unterm:stacking": 2,
+      "dct:language": "zh"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-a0fff5f1-4ef7-4db5-8d7d-86b7a498c886",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Currency Designation",
+      "unterm:fieldValue": "",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 8,
+      "unterm:stacking": 2,
+      "dct:language": "ar"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-0ec427e1-2ad0-476d-ac85-8ba57187581f",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Currency Designation",
+      "unterm:fieldValue": "",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 8,
+      "unterm:stacking": 2,
+      "dct:language": "ru"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-e8653c1d-4364-4afe-89a8-92ede039b4ce",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Fractional Unit",
+      "unterm:fieldValue": "cent(s)",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 10,
+      "unterm:stacking": 2,
+      "dct:language": "en"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-4bc962c7-32d5-4c4d-b127-983abfe072ac",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Adjective",
+      "unterm:fieldValue": "法国的",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 2,
+      "unterm:stacking": 2,
+      "dct:language": "zh"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-8b16de93-cb65-4b37-ae3f-9db3177f5726",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Monetary Unit Plural",
+      "unterm:fieldValue": "euros",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 7,
+      "unterm:stacking": 2,
+      "dct:language": "es"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-cb722053-6731-4021-8ac8-9fd5787ec6ab",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Adjective",
+      "unterm:fieldValue": "French",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 2,
+      "unterm:stacking": 2,
+      "dct:language": "en"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-3d72075b-008b-49ef-89ca-a0a64cb0514e",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Monetary Unit",
+      "unterm:fieldValue": "euro",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 6,
+      "unterm:stacking": 2,
+      "dct:language": "en"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-6f261818-d278-497e-8cac-a0d67528c405",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Capital City",
+      "unterm:fieldValue": "Paris",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 3,
+      "unterm:stacking": 2,
+      "dct:language": "fr"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-0783ad3f-1c7e-4f42-8345-aef3791ecbd4",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Monetary Unit Plural",
+      "unterm:fieldValue": "euros",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 7,
+      "unterm:stacking": 2,
+      "dct:language": "en"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-3234200f-7032-49ef-8c94-b60190007185",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Currency Designation",
+      "unterm:fieldValue": "",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 8,
+      "unterm:stacking": 2,
+      "dct:language": "es"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-86c0a66f-708b-4f21-ad29-cb512f15a99d",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Languages",
+      "unterm:fieldValue": "French",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 5,
+      "unterm:stacking": 1,
+      "dct:language": "en"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-ffd7cdfd-b101-4b95-a40c-d05d7f6591ae",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Fractional Unit",
+      "unterm:fieldValue": "سنت (سنتات)",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 10,
+      "unterm:stacking": 2,
+      "dct:language": "ar"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-a96e94c9-17c9-4723-a32b-d0b4d44af782",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Capital City",
+      "unterm:fieldValue": "París",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 3,
+      "unterm:stacking": 2,
+      "dct:language": "es"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-0774a860-06a5-4d68-815d-d324a433abfe",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Capital City",
+      "unterm:fieldValue": "Paris",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 3,
+      "unterm:stacking": 2,
+      "dct:language": "en"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-d2c5f182-21f8-462e-abc9-d5a2242c4ced",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Inhabitant",
+      "unterm:fieldValue": "Français",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 1,
+      "unterm:stacking": 2,
+      "dct:language": "fr"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-4b159345-1e57-4a34-bc11-d986c7152666",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "ISO Country alpha-2-code",
+      "unterm:fieldValue": "FR",
+      "unterm:fieldLevel": "Record",
+      "unterm:fieldOrder": 3,
+      "unterm:stacking": 0,
+      "dct:language": "en"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-2c48510f-7146-4c56-b774-e16a4b710471",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Inhabitant",
+      "unterm:fieldValue": "француз / француженка",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 1,
+      "unterm:stacking": 2,
+      "dct:language": "ru"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-dbe9919b-bc8e-48de-9fa2-e55844e3b41f",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Monetary Unit",
+      "unterm:fieldValue": "euro [m.]",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 6,
+      "unterm:stacking": 2,
+      "dct:language": "fr"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-8f3be0ad-0b4b-4582-b344-e5b0d9cc02df",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Currency Symbol",
+      "unterm:fieldValue": "EUR 或 €",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 9,
+      "unterm:stacking": 2,
+      "dct:language": "zh"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-1f713a20-0b9d-4e62-94ce-e747c149999f",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Languages",
+      "unterm:fieldValue": "французский",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 5,
+      "unterm:stacking": 1,
+      "dct:language": "ru"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-c5ae0dd1-676c-4071-94d3-eea44784bacd",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Inhabitant",
+      "unterm:fieldValue": "Frenchman; Frenchwoman",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 1,
+      "unterm:stacking": 2,
+      "dct:language": "en"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-f1ecee5f-5e86-4797-a67a-f3f2aabb81c6",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Capital Inhabitants",
+      "unterm:fieldValue": "",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 4,
+      "unterm:stacking": 2,
+      "dct:language": "ar"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-996c2c30-bb8c-4376-a36c-f52e93e71dbb",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Capital Inhabitants",
+      "unterm:fieldValue": "",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 4,
+      "unterm:stacking": 2,
+      "dct:language": "en"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-5de1a6c4-ed3d-46ee-b36b-f5aa75e3c0bd",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Monetary Unit",
+      "unterm:fieldValue": "欧元",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 6,
+      "unterm:stacking": 2,
+      "dct:language": "zh"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-4c8e3997-6fc7-486c-8d94-f62477360166",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Adjective",
+      "unterm:fieldValue": "فرنسي",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 2,
+      "unterm:stacking": 2,
+      "dct:language": "ar"
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#special-dd9b90c0-8fb6-4971-a392-fbdbeb77ec56",
+      "@type": "unterm:SpecialField",
+      "unterm:fieldName": "Currency Symbol",
+      "unterm:fieldValue": "EUR o €",
+      "unterm:fieldLevel": "Language",
+      "unterm:fieldOrder": 9,
+      "unterm:stacking": 2,
+      "dct:language": "es"
+    }
+  ],
+  "unterm:languageData": [
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#lang-ar",
+      "@type": "unterm:LanguageSection",
+      "dct:language": "ar",
+      "unterm:languageName": "arabic",
+      "unterm:isRTL": true,
+      "unterm:validationStatus": "Validated",
+      "unterm:terms": [
+        {
+          "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#term-9d13c2fe-3e07-4589-aa34-fad61e878ff7",
+          "@type": "unterm:Term",
+          "unterm:termValue": "الجمهورية الفرنسية",
+          "unterm:termStatus": "preferred",
+          "unterm:termType": "full",
+          "dct:created": {
+            "@value": "2015-05-20T11:59:58.353",
+            "@type": "xsd:dateTime"
+          },
+          "dct:modified": {
+            "@value": "2021-02-05T17:30:46.7421096",
+            "@type": "xsd:dateTime"
+          }
+        },
+        {
+          "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#term-2f83587b-ffeb-49b0-8528-d167827e1d0e",
+          "@type": "unterm:Term",
+          "unterm:termValue": "فرنسا",
+          "unterm:termStatus": "preferred",
+          "unterm:termType": "short",
+          "dct:created": {
+            "@value": "2015-05-20T11:59:58.353",
+            "@type": "xsd:dateTime"
+          },
+          "dct:modified": {
+            "@value": "2021-02-05T17:30:46.7421096",
+            "@type": "xsd:dateTime"
+          }
+        }
+      ]
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#lang-zh",
+      "@type": "unterm:LanguageSection",
+      "dct:language": "zh",
+      "unterm:languageName": "chinese",
+      "unterm:isRTL": false,
+      "unterm:validationStatus": "Validated",
+      "unterm:terms": [
+        {
+          "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#term-b660b11e-ce39-4298-a173-73c3e06fb809",
+          "@type": "unterm:Term",
+          "unterm:termValue": "法兰西共和国",
+          "unterm:termStatus": "preferred",
+          "unterm:termType": "full",
+          "dct:created": {
+            "@value": "2015-05-20T11:59:58.323",
+            "@type": "xsd:dateTime"
+          },
+          "dct:modified": {
+            "@value": "2021-02-05T17:30:46.7889828",
+            "@type": "xsd:dateTime"
+          }
+        },
+        {
+          "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#term-6292fec6-fa44-4763-879e-250327f292c2",
+          "@type": "unterm:Term",
+          "unterm:termValue": "法国",
+          "unterm:termStatus": "preferred",
+          "unterm:termType": "short",
+          "dct:created": {
+            "@value": "2015-05-20T11:59:58.323",
+            "@type": "xsd:dateTime"
+          },
+          "dct:modified": {
+            "@value": "2021-02-05T17:30:46.773359",
+            "@type": "xsd:dateTime"
+          }
+        }
+      ]
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#lang-en",
+      "@type": "unterm:LanguageSection",
+      "dct:language": "en",
+      "unterm:languageName": "english",
+      "unterm:isRTL": false,
+      "unterm:validationStatus": "Validated",
+      "unterm:terms": [
+        {
+          "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#term-145c283a-3d91-4de5-9a1c-08cfce609080",
+          "@type": "unterm:Term",
+          "unterm:termValue": "the French Republic",
+          "unterm:termStatus": "preferred",
+          "unterm:termType": "full",
+          "dct:created": {
+            "@value": "2015-05-20T11:59:58.23",
+            "@type": "xsd:dateTime"
+          },
+          "dct:modified": {
+            "@value": "2021-02-05T17:30:46.7108643",
+            "@type": "xsd:dateTime"
+          }
+        },
+        {
+          "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#term-9c80318a-126d-4356-8acc-a20d675629f5",
+          "@type": "unterm:Term",
+          "unterm:termValue": "France",
+          "unterm:termStatus": "preferred",
+          "unterm:termType": "short",
+          "dct:created": {
+            "@value": "2015-05-20T11:59:58.243",
+            "@type": "xsd:dateTime"
+          },
+          "dct:modified": {
+            "@value": "2021-02-05T17:30:46.7108643",
+            "@type": "xsd:dateTime"
+          }
+        }
+      ]
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#lang-fr",
+      "@type": "unterm:LanguageSection",
+      "dct:language": "fr",
+      "unterm:languageName": "french",
+      "unterm:isRTL": false,
+      "unterm:validationStatus": "Validated",
+      "unterm:terms": [
+        {
+          "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#term-fa060475-2a74-4714-8e5b-d653b2f65c9e",
+          "@type": "unterm:Term",
+          "unterm:termValue": "la République française",
+          "unterm:termStatus": "preferred",
+          "unterm:termType": "full",
+          "dct:created": {
+            "@value": "2015-05-20T11:59:58.26",
+            "@type": "xsd:dateTime"
+          },
+          "dct:modified": {
+            "@value": "2021-02-05T17:30:46.6952399",
+            "@type": "xsd:dateTime"
+          }
+        },
+        {
+          "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#term-d7871c6d-aac7-419c-83bc-5a0ee961bb51",
+          "@type": "unterm:Term",
+          "unterm:termValue": "France (la)",
+          "unterm:termStatus": "preferred",
+          "unterm:termType": "short",
+          "dct:created": {
+            "@value": "2015-05-20T11:59:58.26",
+            "@type": "xsd:dateTime"
+          },
+          "dct:modified": {
+            "@value": "2021-02-05T17:30:46.6796106",
+            "@type": "xsd:dateTime"
+          }
+        }
+      ]
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#lang-es",
+      "@type": "unterm:LanguageSection",
+      "dct:language": "es",
+      "unterm:languageName": "spanish",
+      "unterm:isRTL": false,
+      "unterm:validationStatus": "Validated",
+      "unterm:terms": [
+        {
+          "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#term-b2a301ea-ad3c-40d7-9a73-a86eab067fe6",
+          "@type": "unterm:Term",
+          "unterm:termValue": "la República Francesa",
+          "unterm:termStatus": "preferred",
+          "unterm:termType": "full",
+          "dct:created": {
+            "@value": "2015-05-20T11:59:58.277",
+            "@type": "xsd:dateTime"
+          },
+          "dct:modified": {
+            "@value": "2021-02-05T17:30:46.7577347",
+            "@type": "xsd:dateTime"
+          }
+        },
+        {
+          "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#term-ed8a7286-e901-4bc8-8495-f5c13efa64b0",
+          "@type": "unterm:Term",
+          "unterm:termValue": "Francia",
+          "unterm:termStatus": "preferred",
+          "unterm:termType": "short",
+          "dct:created": {
+            "@value": "2015-05-20T11:59:58.277",
+            "@type": "xsd:dateTime"
+          },
+          "dct:modified": {
+            "@value": "2021-02-05T17:30:46.773359",
+            "@type": "xsd:dateTime"
+          }
+        }
+      ]
+    },
+    {
+      "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#lang-ru",
+      "@type": "unterm:LanguageSection",
+      "dct:language": "ru",
+      "unterm:languageName": "russian",
+      "unterm:isRTL": false,
+      "unterm:validationStatus": "Validated",
+      "unterm:terms": [
+        {
+          "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#term-860dfe94-d1bd-4179-b874-18affead464c",
+          "@type": "unterm:Term",
+          "unterm:termValue": "Французская Республика",
+          "unterm:termStatus": "preferred",
+          "unterm:termType": "full",
+          "dct:created": {
+            "@value": "2015-05-20T11:59:58.307",
+            "@type": "xsd:dateTime"
+          },
+          "dct:modified": {
+            "@value": "2021-02-05T17:30:46.8046121",
+            "@type": "xsd:dateTime"
+          }
+        },
+        {
+          "@id": "https://conferences.unite.un.org/untermapi/api/record/956a3881-b5fe-406b-8177-9fe7d9b835af#term-7d3175dd-e98f-431d-9b47-65934e92c2d7",
+          "@type": "unterm:Term",
+          "unterm:termValue": "Франция",
+          "unterm:termStatus": "preferred",
+          "unterm:termType": "short",
+          "dct:created": {
+            "@value": "2015-05-20T11:59:58.307",
+            "@type": "xsd:dateTime"
+          },
+          "dct:modified": {
+            "@value": "2021-02-05T17:30:46.8202399",
+            "@type": "xsd:dateTime"
+          }
+        }
+      ]
+    }
+  ]
+}
