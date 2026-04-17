@@ -6,5 +6,10 @@
   "scripts": {
     "start": "node server.mjs",
     "convert": "node scripts/map-to-linked-data.mjs term.json linked-data.jsonld"
+  },
+  "dependencies": {
+    "@comunica/query-sparql": "^5.2.0",
+    "jsonld": "^9.0.0",
+    "n3": "^2.0.3"
   }
 }
