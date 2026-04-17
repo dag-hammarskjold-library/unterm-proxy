@@ -148,6 +148,8 @@ const server = http.createServer(async (req, res) => {
   }
 
   const url = new URL(req.url, `http://${req.headers.host || "localhost"}`);
+  console.log(`[${new Date().toISOString()}] ${req.method || "UNKNOWN"} ${url.pathname}${url.search}`);
+
   if (req.method !== "GET") {
     sendText(res, 405, "Method not allowed. Use GET.");
     return;
