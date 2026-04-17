@@ -437,7 +437,11 @@ const server = http.createServer(async (req, res) => {
         "@id": COUNTRIES_SCHEME_ID,
         "@type": "skos:ConceptScheme",
         "dct:title": {
-          "@value": "UNTERM countries",
+          "@value": "UNTERM",
+          "@language": "en"
+        },
+        "skos:prefLabel": {
+          "@value": "UNTERM",
           "@language": "en"
         },
         "skos:hasTopConcept": concepts
