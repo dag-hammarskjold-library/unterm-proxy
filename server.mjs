@@ -7,6 +7,7 @@ import { Parser as N3Parser, Store as N3Store, Writer as N3Writer } from "n3";
 import { context, linkedDataToTurtle, transformRecordToLinkedData } from "./scripts/map-to-linked-data.mjs";
 
 const PORT = Number(process.env.PORT || 3000);
+const DEBUG_REQUEST_HEADERS = /^(1|true|yes|on)$/i.test(String(process.env.DEBUG_REQUEST_HEADERS || ""));
 
 // This is where the app gets the json serialized record from
 const REMOTE_API_BASE = "https://conferences.unite.un.org/untermapi/api/record/";
@@ -314,6 +315,9 @@ const server = http.createServer(async (req, res) => {
 
   const url = new URL(req.url, `http://${req.headers.host || "localhost"}`);
   console.log(`[${new Date().toISOString()}] ${req.method || "UNKNOWN"} ${url.pathname}${url.search}`);
+  if (DEBUG_REQUEST_HEADERS) {
+    console.log(`[${new Date().toISOString()}] Incoming request headers:\n${JSON.stringify(req.headers, null, 2)}`);
+  }
 
   if (req.method !== "GET") {
     sendText(res, 405, "Method not allowed. Use GET.");
