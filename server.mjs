@@ -12,7 +12,7 @@ const PORT = Number(process.env.PORT || 3000);
 const REMOTE_API_BASE = "https://conferences.unite.un.org/untermapi/api/record/";
 
 // This is the base for the "URI" that will be generated for interstitial use 
-const API_BASE = "http://metadata.un.org/unterm/"
+const API_BASE = "https://metadata.un.org/unterm/"
 
 // This is the URL base for the web view version of the terms 
 const WEB_BASE = "https://unterm.un.org/unterm2/view/";
