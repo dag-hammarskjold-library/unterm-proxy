@@ -1,0 +1,51 @@
+{
+  "family": "unterm-linked-data-app",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "512",
+  "memory": "1024",
+  "executionRoleArn": "arn:aws:iam::123456789012:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::123456789012:role/untermLinkedDataTaskRole",
+  "containerDefinitions": [
+    {
+      "name": "unterm-linked-data-app",
+      "image": "123456789012.dkr.ecr.us-east-1.amazonaws.com/unterm-linked-data-app:latest",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        { "name": "PORT", "value": "3000" },
+        { "name": "UPSTREAM_TIMEOUT_MS", "value": "15000" },
+        { "name": "SHUTDOWN_TIMEOUT_MS", "value": "10000" },
+        { "name": "DEBUG_REQUEST_HEADERS", "value": "false" },
+        { "name": "REMOTE_API_BASE", "value": "https://conferences.unite.un.org/untermapi/api/record/" },
+        { "name": "API_BASE", "value": "https://metadata.un.org/unterm/" },
+        { "name": "WEB_BASE", "value": "https://unterm.un.org/unterm2/view/" },
+        { "name": "COUNTRIES_API_BASE", "value": "https://conferences.unite.un.org/untermapi/api/term/countries" }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/unterm-linked-data-app",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "healthCheck": {
+        "command": [
+          "CMD-SHELL",
+          "node -e \"fetch('http://127.0.0.1:3000/unterm/health').then((response) => process.exit(response.ok ? 0 : 1)).catch(() => process.exit(1))\""
+        ],
+        "interval": 30,
+        "timeout": 5,
+        "retries": 3,
+        "startPeriod": 20
+      }
+    }
+  ]
+}

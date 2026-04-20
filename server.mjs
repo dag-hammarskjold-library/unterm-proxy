@@ -19,6 +19,19 @@ import { buildCountriesDocument } from "./src/services/countries.mjs";
 import { respondToSparqlIfRequested } from "./src/services/sparql.mjs";
 
 const activeSockets = new Set();
+const APP_BASE_PATH = "/unterm";
+
+function isAppRoute(pathname) {
+  return pathname === APP_BASE_PATH || pathname.startsWith(`${APP_BASE_PATH}/`);
+}
+
+function getAppRoute(pathname) {
+  if (pathname === APP_BASE_PATH) {
+    return "/";
+  }
+
+  return pathname.slice(APP_BASE_PATH.length);
+}
 
 const server = http.createServer(async (req, res) => {
   if (!req.url) {
@@ -37,17 +50,34 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  if (url.pathname === "/" || url.pathname === "/health") {
+  if (!isAppRoute(url.pathname)) {
+    sendText(res, 404, "Not found. Use /unterm, /unterm/countries, /unterm/{recordID}, or /unterm/health");
+    return;
+  }
+
+  const appPath = getAppRoute(url.pathname);
+
+  if (appPath === "/health") {
     sendJson(res, 200, {
       service: "unterm-linked-data-proxy",
       status: "ok",
-      endpoints: ["/unterm/{recordID}", "/unterm/countries"],
+      endpoints: ["/unterm", "/unterm/{recordID}", "/unterm/countries", "/unterm/health"],
       sparqlQueryParameter: ["query", "sparql"]
     });
     return;
   }
 
-  if (url.pathname === "/unterm/countries") {
+  if (appPath === "/") {
+    sendJson(res, 200, {
+      service: "unterm-linked-data-proxy",
+      status: "ok",
+      endpoints: ["/unterm", "/unterm/{recordID}", "/unterm/countries", "/unterm/health"],
+      sparqlQueryParameter: ["query", "sparql"]
+    });
+    return;
+  }
+
+  if (appPath === "/countries") {
     try {
       const countriesDoc = await buildCountriesDocument(url);
 
@@ -74,9 +104,9 @@ const server = http.createServer(async (req, res) => {
     }
   }
 
-  const match = url.pathname.match(/^\/unterm\/([^/]+)$/);
+  const match = appPath.match(/^\/([^/]+)$/);
   if (!match) {
-    sendText(res, 404, "Not found. Use /unterm/{recordID} or /unterm/countries");
+    sendText(res, 404, "Not found. Use /unterm, /unterm/countries, /unterm/{recordID}, or /unterm/health");
     return;
   }
 
