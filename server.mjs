@@ -21,6 +21,14 @@ const WEB_BASE = "https://unterm.un.org/unterm2/view/";
 // And this is the API for the specific countries page
 const COUNTRIES_API_BASE = "https://conferences.unite.un.org/untermapi/api/term/countries";
 const COUNTRIES_SCHEME_ID = `${API_BASE}countries`;
+const COUNTRIES_SCHEME_NODE = {
+  "@id": COUNTRIES_SCHEME_ID,
+  "@type": "skos:ConceptScheme",
+  "skos:prefLabel": {
+    "@value": "UNTERM",
+    "@language": "en"
+  }
+};
 const SPARQL_RESULTS_CONTENT_TYPE = "application/sparql-results+json; charset=utf-8";
 
 const queryEngine = new QueryEngine();
@@ -260,7 +268,7 @@ function groupMatchesForConceptList(matches) {
       grouped.set(id, {
         "@id": id,
         "unterm:webURL": match["unterm:webURL"] || null,
-        "skos:inScheme": { "@id": COUNTRIES_SCHEME_ID },
+        "skos:inScheme": COUNTRIES_SCHEME_NODE,
         "skos:prefLabel": []
       });
     }
@@ -409,7 +417,7 @@ const server = http.createServer(async (req, res) => {
         const conceptList = groupMatchesForConceptList(matches);
         const filteredDoc = {
           "@context": context,
-          "@graph": conceptList
+          "@graph": [COUNTRIES_SCHEME_NODE, ...conceptList]
         };
 
         if (await respondToSparqlIfRequested(req, res, url, filteredDoc)) {
@@ -429,7 +437,7 @@ const server = http.createServer(async (req, res) => {
       const concepts = graph.map((country) => ({
         ...country,
         "unterm:webURL": `${WEB_BASE}${country["dct:identifier"]}`,
-        "skos:inScheme": { "@id": COUNTRIES_SCHEME_ID }
+        "skos:inScheme": COUNTRIES_SCHEME_NODE
       }));
 
       const graphDoc = {
@@ -498,7 +506,7 @@ const server = http.createServer(async (req, res) => {
     const record = await upstream.json();
     const linkedData = {
       ...transformRecordToLinkedData(record, { recordIriBase: API_BASE }),
-      "skos:inScheme": { "@id": COUNTRIES_SCHEME_ID }
+      "skos:inScheme": COUNTRIES_SCHEME_NODE
     };
 
     if (await respondToSparqlIfRequested(req, res, url, linkedData)) {
