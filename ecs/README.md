@@ -54,6 +54,15 @@ The image supports these environment variables:
 - `WEB_BASE`
 - `COUNTRIES_API_BASE`
 
+## GitHub Actions
+
+The workflow in [.github/workflows/deploy-ecs.yml](../.github/workflows/deploy-ecs.yml) expects:
+
+- Secret `AWS_ROLE_TO_ASSUME` for GitHub OIDC to AWS STS
+- Repo variables `AWS_REGION`, `ECR_REPOSITORY`, `ECS_CLUSTER`, and `ECS_SERVICE`
+
+It renders [ecs/task-definition.json](task-definition.json) with the built image, then registers and deploys that definition to ECS.
+
 ## Notes
 
 - The container already exposes `/unterm/health` for ALB checks.
