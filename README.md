@@ -74,7 +74,7 @@ GET /
 
 ### Individual Record
 ```
-GET /unterm/{recordID}
+GET /unterm/countries/{recordID}
 ```
 Returns linked data for a specific record, with SPARQL support.
 
@@ -89,7 +89,7 @@ Returns all countries with optional filtering:
 ### SPARQL Queries
 Add SPARQL query via query parameters:
 ```
-GET /unterm/{recordID}?query=SELECT%20*%20WHERE%20{%20?s%20?p%20?o%20}
+GET /unterm/countries/{recordID}?query=SELECT%20*%20WHERE%20{%20?s%20?p%20?o%20}
 GET /unterm/countries?query=SELECT%20*%20WHERE%20{%20?s%20?p%20?o%20}
 ```
 
@@ -97,19 +97,19 @@ GET /unterm/countries?query=SELECT%20*%20WHERE%20{%20?s%20?p%20?o%20}
 
 ### Get Record as JSON-LD
 ```
-GET /unterm/12345
+GET /unterm/countries/12345
 Accept: application/ld+json
 ```
 
 ### Get Record as Turtle
 ```
-GET /unterm/12345
+GET /unterm/countries/12345
 Accept: text/turtle
 ```
 
 ### SPARQL Query
 ```
-GET /unterm/12345?query=SELECT%20?s%20?p%20?o%20WHERE%20{%20?s%20?p%20?o%20}
+GET /unterm/countries/12345?query=SELECT%20?s%20?p%20?o%20WHERE%20{%20?s%20?p%20?o%20}
 ```
 
 ### Search Countries
