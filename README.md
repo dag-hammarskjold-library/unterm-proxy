@@ -129,7 +129,3 @@ GET /unterm/countries?language=en&prefLabel=United
 - `jsonld`: JSON-LD processing
 - `n3`: RDF N3 parser and writer
 - `node:http`: Built-in Node.js HTTP module
-
-## License
-
-[Specify license here]
