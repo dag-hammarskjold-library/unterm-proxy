@@ -315,6 +315,46 @@ async function fetchCountriesPage(pageNumber) {
   return { payload, upstreamUrl };
 }
 
+async function fetchAllCountries() {
+  const firstPage = await fetchCountriesPage(1);
+  const firstPayload = firstPage.payload;
+  const pageSize = Number(firstPayload.pageSize || 0);
+  const totalHits = Number(firstPayload.totalHits || 0);
+  const firstResults = Array.isArray(firstPayload.results) ? firstPayload.results : [];
+
+  let allResults = [...firstResults];
+  let totalPages = 1;
+  let usedFallbackPaging = false;
+
+  if (pageSize > 0 && totalHits > 0) {
+    totalPages = Math.ceil(totalHits / pageSize);
+  } else {
+    // Fallback for unknown totals: keep reading until an empty page.
+    usedFallbackPaging = true;
+    let page = 2;
+    while (true) {
+      const next = await fetchCountriesPage(page);
+      const pageResults = Array.isArray(next.payload.results) ? next.payload.results : [];
+      if (pageResults.length === 0) {
+        break;
+      }
+      allResults = allResults.concat(pageResults);
+      page += 1;
+      totalPages = page - 1;
+    }
+  }
+
+  if (!usedFallbackPaging && totalPages > 1) {
+    for (let page = 2; page <= totalPages; page += 1) {
+      const next = await fetchCountriesPage(page);
+      const pageResults = Array.isArray(next.payload.results) ? next.payload.results : [];
+      allResults = allResults.concat(pageResults);
+    }
+  }
+
+  return allResults;
+}
+
 const server = http.createServer(async (req, res) => {
   if (!req.url) {
     sendText(res, 400, "Missing URL");
@@ -336,103 +376,17 @@ const server = http.createServer(async (req, res) => {
     sendJson(res, 200, {
       service: "unterm-linked-data-proxy",
       status: "ok",
-      endpoints: ["/unterm/countries","/unterm/countries/{recordID}"],
+      endpoints: ["/unterm/{recordID}", "/unterm/countries", "/unterm/countries/{recordID}"],
       sparqlQueryParameter: ["query", "sparql"]
     });
     return;
   }
 
+  // Handle /unterm/countries endpoint
   if (url.pathname === "/unterm/countries") {
     try {
-      const filters = parseCountriesFilters(url);
-      const firstPage = await fetchCountriesPage(1);
-      const firstPayload = firstPage.payload;
-      const pageSize = Number(firstPayload.pageSize || 0);
-      const totalHits = Number(firstPayload.totalHits || 0);
-      const firstResults = Array.isArray(firstPayload.results) ? firstPayload.results : [];
-
-      let allResults = [...firstResults];
-      let totalPages = 1;
-      let usedFallbackPaging = false;
-
-      if (pageSize > 0 && totalHits > 0) {
-        totalPages = Math.ceil(totalHits / pageSize);
-      } else {
-        // Fallback for unknown totals: keep reading until an empty page.
-        usedFallbackPaging = true;
-        let page = 2;
-        while (true) {
-          const next = await fetchCountriesPage(page);
-          const pageResults = Array.isArray(next.payload.results) ? next.payload.results : [];
-          if (pageResults.length === 0) {
-            break;
-          }
-          allResults = allResults.concat(pageResults);
-          page += 1;
-          totalPages = page - 1;
-        }
-      }
-
-      if (!usedFallbackPaging && totalPages > 1) {
-        for (let page = 2; page <= totalPages; page += 1) {
-          const next = await fetchCountriesPage(page);
-          const pageResults = Array.isArray(next.payload.results) ? next.payload.results : [];
-          allResults = allResults.concat(pageResults);
-        }
-      }
-
-      const graph = allResults.map((record) => transformRecordToLinkedData(record, { recordIriBase: API_BASE }));
-
-      if (filters.hasFilters) {
-        const matches = [];
-        const hasLanguageFilter = Boolean(filters.language);
-        const hasPrefLabelFilter = Boolean(filters.prefLabel);
-
-        for (const country of graph) {
-          const labels = Array.isArray(country["skos:prefLabel"]) ? country["skos:prefLabel"] : [];
-          const languageLabels = labels.filter(isLangLiteral);
-
-          const matchingPrefLabels = hasPrefLabelFilter && !hasLanguageFilter
-            ? (() => {
-              const hasAnyMatch = languageLabels.some((label) =>
-                label["@value"].toLowerCase().includes(filters.prefLabel)
-              );
-              return hasAnyMatch ? languageLabels : [];
-            })()
-            : languageLabels.filter((label) => {
-              const languageOk = hasLanguageFilter ? label["@language"].toLowerCase() === filters.language : true;
-              const prefLabelOk = hasPrefLabelFilter ? label["@value"].toLowerCase().includes(filters.prefLabel) : true;
-              return languageOk && prefLabelOk;
-            });
-
-          for (const label of matchingPrefLabels) {
-            matches.push({
-              "@id": country["@id"],
-              "unterm:webURL": `${WEB_BASE}${country["dct:identifier"]}`,
-              "skos:prefLabel": label
-            });
-          }
-        }
-
-        const conceptList = groupMatchesForConceptList(matches);
-        const filteredDoc = {
-          "@context": context,
-          "@graph": [COUNTRIES_SCHEME_NODE, ...conceptList]
-        };
-
-        if (await respondToSparqlIfRequested(req, res, url, filteredDoc)) {
-          return;
-        }
-
-        if (wantsTurtle(req)) {
-          const turtle = linkedDataToTurtle(filteredDoc);
-          sendText(res, 200, turtle, "text/turtle; charset=utf-8");
-          return;
-        }
-
-        sendJson(res, 200, filteredDoc, "application/ld+json; charset=utf-8");
-        return;
-      }
+      const allCountries = await fetchAllCountries();
+      const graph = allCountries.map((record) => transformRecordToLinkedData(record, { recordIriBase: API_BASE }));
 
       const concepts = graph.map((country) => ({
         ...country,
@@ -478,9 +432,68 @@ const server = http.createServer(async (req, res) => {
     }
   }
 
-  const match = url.pathname.match(/^\/unterm\/countries\/([^/]+)$/);
+  // Handle /unterm/countries/{recordID} endpoint
+  if (url.pathname.startsWith("/unterm/countries/")) {
+    const match = url.pathname.match(/^\/unterm\/countries\/([^/]+)$/);
+    if (!match) {
+      sendText(res, 404, "Not found. Use /unterm/countries/{recordID}");
+      return;
+    }
+
+    const recordID = decodeURIComponent(match[1]);
+    
+    try {
+      const allCountries = await fetchAllCountries();
+      const country = allCountries.find(c => c["dct:identifier"] === recordID);
+      
+      if (!country) {
+        sendJson(res, 404, {
+          error: "Country not found",
+          recordID
+        });
+        return;
+      }
+
+      const linkedData = {
+        ...transformRecordToLinkedData(country, { recordIriBase: API_BASE }),
+        "skos:inScheme": COUNTRIES_SCHEME_NODE,
+        "unterm:webURL": `${WEB_BASE}${recordID}`
+      };
+
+      if (await respondToSparqlIfRequested(req, res, url, linkedData)) {
+        return;
+      }
+
+      if (wantsTurtle(req)) {
+        const turtle = linkedDataToTurtle(linkedData);
+        sendText(res, 200, turtle, "text/turtle; charset=utf-8");
+        return;
+      }
+
+      if (wantsJsonLd(req)) {
+        sendJson(res, 200, linkedData, "application/ld+json; charset=utf-8");
+        return;
+      }
+
+      res.writeHead(302, {
+        Location: `${WEB_BASE}${encodeURIComponent(recordID)}`,
+        "Cache-Control": "no-store"
+      });
+      res.end();
+    } catch (error) {
+      sendJson(res, 502, {
+        error: "Failed to fetch or transform source record",
+        detail: error instanceof Error ? error.message : String(error),
+        recordID
+      });
+    }
+    return;
+  }
+
+  // Handle /unterm/{recordId} endpoint (original functionality)
+  const match = url.pathname.match(/^\/unterm\/([^/]+)$/);
   if (!match) {
-    sendText(res, 404, "Not found. Use /unterm/{recordID} or /unterm/countries");
+    sendText(res, 404, "Not found. Use /unterm/{recordID}, /unterm/countries, or /unterm/countries/{recordID}");
     return;
   }
 
@@ -534,7 +547,7 @@ const server = http.createServer(async (req, res) => {
       error: "Failed to fetch or transform source record",
       detail: error instanceof Error ? error.message : String(error),
       upstreamUrl
-    });
+      });
   }
 });
 
