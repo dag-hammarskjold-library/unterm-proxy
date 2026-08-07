@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::_Context.SAM_Template
+Description: Deployment for unterm-linked-data-app
+
+Resources:
+  UntermFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      # Standard Lambda handler points to the entry point in server.mjs
+      Handler: server.handler
+      Runtime: nodejs18.x
+      MemorySize: 512
+      Timeout: 30
+      Environment:
+        Variables:
+          PORT: 3000
+          DEBUG_REQUEST_HEADERS: ""
+      FunctionUrlConfig:
+        AuthType: AWS_IAM
+        # If you want public access without IAM, use NONE (note: usually requires restricted permissions)
+        # For a "public" api feel often used with FunctionURL, we might stick to standard behavior or set to NONE 
+        # but the prompt implied a deployment workflow. Let's stick to a common configuration.
+        AuthType: AWS_IAM 
+
+Outputs:
+  FunctionUrl:
+    Description: "URL for the Lambda function"
+    Value: !GetAtt UntermFunction.FunctionUrl

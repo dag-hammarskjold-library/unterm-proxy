@@ -13,7 +13,7 @@ const DEBUG_REQUEST_HEADERS = /^(1|true|yes|on)$/i.test(String(process.env.DEBUG
 const REMOTE_API_BASE = "https://conferences.unite.un.org/untermapi/api/record/";
 
 // This is the base for the "URI" that will be generated for interstitial use 
-const API_BASE = "https://metadata.un.org/unterm/countries/"
+const API_BASE = "https://metadata.un.org/unterm/countries/";
 
 // This is the URL base for the web view version of the terms 
 const WEB_BASE = "https://unterm.un.org/unterm2/view/";
@@ -315,7 +315,8 @@ async function fetchCountriesPage(pageNumber) {
   return { payload, upstreamUrl };
 }
 
-const server = http.createServer(async (req, res) => {
+// Request handler function that can be used by both HTTP server and Lambda
+const requestHandler = async (req, res) => {
   if (!req.url) {
     sendText(res, 400, "Missing URL");
     return;
@@ -536,8 +537,108 @@ const server = http.createServer(async (req, res) => {
       upstreamUrl
     });
   }
-});
+};
 
-server.listen(PORT, () => {
-  console.log(`UNTERM linked data app listening on http://localhost:${PORT}`);
-});
+// Create HTTP server for local development
+const server = http.createServer(requestHandler);
+
+// Only listen if not running in AWS Lambda
+if (process.env.AWS_LAMBDA_FUNCTION_NAME === undefined) {
+  server.listen(PORT, () => {
+    console.log(`UNTERM linked data app listening on http://localhost:${PORT}`);
+  });
+}
+
+// Export handler for AWS Lambda
+exports.handler = async (event, context) => {
+  // Convert API Gateway event to mock request
+  let mockReq = {
+    method: '',
+    url: '',
+    headers: {}
+  };
+
+  // Handle HTTP API v2 format
+  if (event.version === '2.0') {
+    mockReq.method = event.requestContext.http.method;
+    mockReq.url = event.rawPath;
+    if (event.rawQueryString) {
+      mockReq.url += `?${event.rawQueryString}`;
+    }
+    mockReq.headers = event.headers || {};
+  } 
+  // Handle REST API v1 format
+  else if (event.httpMethod) {
+    mockReq.method = event.httpMethod;
+    mockReq.url = event.path;
+    if (event.queryStringParameters) {
+      const queryString = Object.entries(event.queryStringParameters)
+        .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+        .join('&');
+      if (queryString) {
+        mockReq.url += `?${queryString}`;
+      }
+    }
+    mockReq.headers = event.headers || {};
+  } 
+  // Fallback: assume minimal event structure
+  else {
+    mockReq.method = event.requestContext?.http?.method || event.httpMethod || 'GET';
+    mockReq.url = event.rawPath || event.path || '/';
+    if (event.rawQueryString) {
+      mockReq.url += `?${event.rawQueryString}`;
+    } else if (event.queryStringParameters) {
+      const queryString = Object.entries(event.queryStringParameters)
+        .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+        .join('&');
+      if (queryString) {
+        mockReq.url += `?${queryString}`;
+      }
+    }
+    mockReq.headers = event.headers || {};
+  }
+
+  // Create mock response
+  let mockRes = {
+    statusCode: null,
+    headers: {},
+    bodyChunks: [],
+    writeHead: function(statusCode, headers) {
+      this.statusCode = statusCode;
+      this.headers = { ...this.headers, ...headers };
+    },
+    end: function(chunk) {
+      if (chunk !== undefined) {
+        this.bodyChunks.push(chunk);
+      }
+    }
+  };
+
+  try {
+    // Call the request handler
+    await requestHandler(mockReq, mockRes);
+
+    // Construct response for API Gateway
+    const response = {
+      statusCode: mockRes.statusCode || 200,
+      headers: mockRes.headers,
+      body: mockRes.bodyChunks.join(''),
+      isBase64Encoded: false
+    };
+
+    // If no status was set, default to 200
+    if (response.statusCode === null) {
+      response.statusCode = 200;
+    }
+
+    return response;
+  } catch (err) {
+    console.error('Lambda handler error:', err);
+    return {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'Internal server error' }),
+      isBase64Encoded: false
+    };
+  }
+};
